@@ -1,16 +1,14 @@
 defmodule WindowToggler do
   require Logger
 
-  @num_horizontal_workspaces 4
-  @num_vertical_workspaces 3
-
   def main(_args) do
     current_window = active_window_id
     monitor_size = monitor_size
-    window_list = window_list
-    workspace_window_list = windows_on_workspace(window_list, monitor_size)
-    next_window = get_next_window(workspace_window_list, current_window)
-    focus_window(next_window)
+
+    window_list
+    |> windows_on_workspace(monitor_size)
+    |> get_next_window(current_window)
+    |> focus_window
   end
 
   def hostname do
