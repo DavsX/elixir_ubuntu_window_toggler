@@ -55,7 +55,7 @@ defmodule WindowToggler do
     dx = Enum.at(window, 2) |> String.to_integer
     dy = Enum.at(window, 3) |> String.to_integer
 
-    (dx > 0) and (dx < width) and (dy > 0) and (dy < height)
+    (dx >= 0) and (dx < width) and (dy >= 0) and (dy < height)
   end
 
   def monitor_size do
